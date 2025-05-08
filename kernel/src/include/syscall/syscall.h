@@ -1,0 +1,71 @@
+#pragma once
+
+#include <stdint.h>
+#include <stddef.h>
+#include <stdbool.h>
+
+enum
+{
+    SYS_READ = 1,
+    SYS_WRITE,
+    SYS_OPEN,
+    SYS_CLOSE,
+    SYS_CREATFILE,
+    SYS_LSEEK,
+    SYS_IOCTL,
+    SYS_CHDIR,
+    SYS_GETCWD,
+    SYS_GETDENTS,
+    SYS_SIGACTION,
+    SYS_SIGNAL,
+    SYS_SETMASK,
+    SYS_SENDSIGNAL,
+    SYS_EXIT,
+    SYS_GETPID,
+    SYS_GETPPID,
+    SYS_FORK,
+    SYS_WAITPID,
+    SYS_EXECVE,
+    SYS_USLEEP,
+    SYS_IOPL,
+
+    SYS_BRK,
+    SYS_SBRK,
+
+    SYS_NANOTIME,
+
+    SYS_WRITE_FB,
+    SYS_GET_FB_INFO,
+
+    SYS_GET_MOUSE_XY,
+    SYS_MOUSE_CLICK,
+
+    SYS_MSG_CREATE,
+    SYS_MSG_DESTROY,
+    SYS_MSG_FIND,
+    SYS_MSG_SET_FLAGS,
+    SYS_MSG_READ,
+    SYS_MSG_WRITE,
+
+    SYS_ALLOC_SHARED_MEMORY,
+    SYS_FREE_SHARED_MEMORY,
+
+    SYS_SET_WINDOW,
+    SYS_HAVE_A_WINDOW,
+
+    SYS_KILL,
+
+    SYS_HAVE_PROC,
+    SYS_WINDOW_SET_MINIMAL,
+    SYS_WINDOW_SET_RESTORED,
+    SYS_WINDOW_SET_TOP,
+
+    SYS_NUM,
+};
+
+#define SHARED_MEMORY_SPACE (255UL << 39)
+#define SHARED_MEMORY_SIZE (PAGE_SIZE * 0x800)
+
+extern void syscall_exception();
+
+void syscall_init();

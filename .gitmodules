@@ -1,0 +1,3 @@
+[submodule "user/apps/lvgl"]
+	path = user/apps/lvgl
+	url = git@github.com:aether-os-studio/lvgl.git

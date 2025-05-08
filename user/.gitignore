@@ -1,0 +1,4 @@
+alibc/include/nr.h
+/obj
+*.o
+*.exec
