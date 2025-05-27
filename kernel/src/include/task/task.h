@@ -124,6 +124,7 @@ typedef struct task
     task_window_t *window;
     int mlfq_level;
     int mlfq_ticks;
+    int priority; // 新增：任务优先级
 } task_t;
 
 #define KERNEL_USER 0

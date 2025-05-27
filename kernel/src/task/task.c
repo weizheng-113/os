@@ -43,7 +43,7 @@ extern uint64_t cpu_count;
 static volatile uint32_t cpu_idx = 0;
 spinlock_t cpu_alloc_lock;
 
-// 新增：调度模式标志，true=RR，false=FCFS
+// 调度模式标志，true=RR，false=FCFS
 bool is_rr = false;
 
 // 调度策略函数指针
@@ -346,8 +346,8 @@ void task_switch_to(struct pt_regs *curr, task_t *prev, task_t *next)
 
     //输出进程调度信息
     if (prev && next && prev != next) {
-        /*printk("[SCHED] Switch from PID=%d to PID=%d (prev jiffies=%lu, next jiffies=%lu)\n",
-            prev->task_id, next->task_id, prev->jiffies, next->jiffies);*/
+        printk("[SCHED] Switch from PID=%d to PID=%d (prev jiffies=%lu, next jiffies=%lu)\n",
+            prev->task_id, next->task_id, prev->jiffies, next->jiffies);
     }
     //
 

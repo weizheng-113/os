@@ -1424,3 +1424,12 @@ int vsnprintf(char *buf, size_t n, const char *fmt, va_list ap)
 
     return o;
 }
+
+int snprintf(char *str, size_t size, const char *format, ...) {
+    va_list args;
+    int ret;
+    va_start(args, format);
+    ret = vsnprintf(str, size, format, args);
+    va_end(args);
+    return ret;
+}

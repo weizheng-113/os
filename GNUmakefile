@@ -120,6 +120,8 @@ $(IMAGE_NAME).iso: limine/limine kernel user
 	cp -v user/apps/aeui/aeui.exec iso_root/usr/bin
 	cp -v user/apps/2048/2048.exec iso_root/usr/bin
 	cp -v user/apps/test/test.exec iso_root/usr/bin
+	cp -v user/apps/test1/test1.exec iso_root/usr/bin
+	cp -v user/apps/test2/test2.exec iso_root/usr/bin
 	xorriso -as mkisofs -R -r -J -b boot/limine/limine-bios-cd.bin \
 		-no-emul-boot -boot-load-size 4 -boot-info-table -hfsplus \
 		-apm-block-size 2048 --efi-boot boot/limine/limine-uefi-cd.bin \
@@ -143,6 +145,8 @@ $(IMAGE_NAME).hdd: limine/limine kernel user
 	mcopy -i $(IMAGE_NAME).hdd@@1M user/apps/aeui/aeui.exec ::/usr/bin
 	mcopy -i $(IMAGE_NAME).hdd@@1M user/apps/2048/2048.exec ::/usr/bin
 	mcopy -i $(IMAGE_NAME).hdd@@1M user/apps/test/test.exec ::/usr/bin
+	mcopy -i $(IMAGE_NAME).hdd@@1M user/apps/test1/test1.exec ::/usr/bin
+	mcopy -i $(IMAGE_NAME).hdd@@1M user/apps/test2/test2.exec ::/usr/bin
 
 	qemu-img convert -O vmdk $(IMAGE_NAME).hdd $(IMAGE_NAME).vmdk
 
