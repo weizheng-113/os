@@ -9,7 +9,7 @@ void _start()
 
     int pid = 0;
 
-    pid = fork();
+    /*pid = fork();
     if (pid == 0)
     {
         execve("/usr/bin/aeui.exec", NULL, NULL);
@@ -30,13 +30,14 @@ void _start()
         int status = 0;
         waitpid(pid, &status);
         // goto restart_shell;
-    }
+    }*/
 
     
 
-    /*pid = fork();
+    pid = fork();
     if (pid == 0) {
         execve("/usr/bin/test.exec", NULL, NULL);
+        kill(getppid());
         exit(-1);
     }
 
@@ -50,7 +51,7 @@ void _start()
     if (pid == 0) {
         execve("/usr/bin/test2.exec", NULL, NULL);
         exit(-1);
-    }*/
+    }
 
     while (1)
         __asm__ __volatile__("pause");

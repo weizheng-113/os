@@ -346,8 +346,8 @@ void task_switch_to(struct pt_regs *curr, task_t *prev, task_t *next)
 
     //输出进程调度信息
     if (prev && next && prev != next) {
-        /*printk("[SCHED] Switch from PID=%d to PID=%d (prev jiffies=%lu, next jiffies=%lu)\n",
-            prev->task_id, next->task_id, prev->jiffies, next->jiffies);*/
+        printk("[SCHED] Switch from PID=%d to PID=%d (prev jiffies=%lu, next jiffies=%lu)\n",
+            prev->task_id, next->task_id, prev->jiffies, next->jiffies);
     }
     //
 
